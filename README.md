@@ -25,9 +25,10 @@ This project is a responsive web-based media recommendation platform where users
 - [Books](https://book-recomendation-system.vercel.app)
 
 ## 🔗 Git - Hub Links for Recommendation Systems
--
--
--
+- [Movies](https://github.com/geethikagattu/movie)
+- [Music](https://music-recomendation.vercel.app)
+- [Books](https://book-recomendation-system.vercel.app)
+- 
 ## 🚀 How to Run
 
 1. Clone or download the repository.
