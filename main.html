@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Recommendations</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Auth Container -->
+    <div class="auth-container">
+      <button id="auth-button" class="auth-button" onclick="showAuthModal()">
+        Sign In / Register
+      </button>
+      <div id="user-profile" class="user-profile">
+        <span id="username-display">Username</span>
+        <button class="logout-button" onclick="logoutUser()">Logout</button>
+      </div>
+    </div>
+
+    <!-- Profile Tab -->
+    <div id="profile-tab" class="profile-tab" onclick="showUserActivity()">
+      👤
+    </div>
+
+    <div class="container">
+      <!-- Main Selection Screen -->
+      <div id="selection-screen">
+        <h1>Choose Your Entertainment</h1>
+
+        <div class="boxes-container">
+          <!-- Movie Recommendations Box -->
+          <div class="box" onclick="window.location.href = 'https://movie-tau-snowy.vercel.app'">
+            <div class="box-image">
+              <div class="box-icon">🎬</div>
+            </div>
+            <div class="box-content">
+              <h2 class="box-title">Movie Recommendations</h2>
+              <p class="box-description">
+                Discover films tailored to your taste and mood. From classics to
+                new releases, find your next favorite movie.
+              </p>
+            </div>
+          </div>
+
+          <!-- Music Recommendations Box -->
+          <div class="box" onclick="window.location.href = 'https://music-recomendation.vercel.app'">
+            <div class="box-image">
+              <div class="box-icon">🎵</div>
+            </div>
+            <div class="box-content">
+              <h2 class="box-title">Music Recommendations</h2>
+              <p class="box-description">
+                Find your next favorite tracks, albums, and artists with
+                personalized music suggestions.
+              </p>
+            </div>
+          </div>
+
+          <!-- Book Recommendations Box -->
+          <div class="box" onclick="window.location.href = 'https://book-recomendation-system.vercel.app'">
+            <div class="box-image">
+              <div class="box-icon">📚</div>
+            </div>
+            <div class="box-content">
+              <h2 class="box-title">Book Recommendations</h2>
+              <p class="box-description">
+                Explore literary worlds with personalized book recommendations
+                across all genres.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Movie Recommendations Section -->
+      <div id="movie-recommendations" class="content-section">
+        <div class="section-header">
+          <button class="back-button" onclick="showSelectionScreen()">
+            ← Back
+          </button>
+          <h2 class="section-title">Movie Recommendations</h2>
+          <div style="width: 100px"></div>
+        </div>
+
+        <div id="movie-recommendations-content">
+          <!-- Movie Recommendations Box -->
+          <div
+            class="box"
+            onclick="window.location.href = 'https://movie-tau-snowy.vercel.app'"
+          >
+            <div class="box-image">
+              <img src="/api/placeholder/320/180" alt="Movies" />
+              <div class="box-icon">🎬</div>
+            </div>
+            <div class="box-content">
+              <h2 class="box-title">Movie Recommendations</h2>
+              <p class="box-description">
+                Discover films tailored to your taste and mood. From classics to
+                new releases, find your next favorite movie.
+              </p>
+            </div>
+          </div>
+
+          <p style="text-align: center; padding: 40px; color: #a0a0a0">
+            Loading movie recommendations...
+          </p>
+        </div>
+      </div>
+
+      <!-- Music Recommendations Section -->
+      <div id="music-recommendations" class="content-section">
+        <div class="section-header">
+          <button class="back-button" onclick="showSelectionScreen()">
+            ← Back
+          </button>
+          <h2 class="section-title">Music Recommendations</h2>
+          <div style="width: 100px"></div>
+        </div>
+
+        <div id="music-recommendations-content">
+          <p style="text-align: center; padding: 40px; color: #a0a0a0">
+            Loading music recommendations...
+          </p>
+        </div>
+      </div>
+
+      <!-- Book Recommendations Section -->
+      <div id="book-recommendations" class="content-section">
+        <div class="section-header">
+          <button class="back-button" onclick="showSelectionScreen()">
+            ← Back
+          </button>
+          <h2 class="section-title">Book Recommendations</h2>
+          <div style="width: 100px"></div>
+        </div>
+
+        <div id="book-recommendations-content">
+          <p style="text-align: center; padding: 40px; color: #a0a0a0">
+            Book recommendations feature coming soon!
+          </p>
+        </div>
+      </div>
+
+      <!-- User Activity Section -->
+      <div id="user-activity" class="content-section">
+        <div class="section-header">
+          <button class="back-button" onclick="showSelectionScreen()">
+            ← Back
+          </button>
+          <h2 class="section-title">Your Activity</h2>
+          <div style="width: 100px"></div>
+        </div>
+
+        <div class="activity-list" id="activity-list">
+          <!-- Activity items will be generated dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeAuthModal()">&times;</span>
+
+        <!-- Login Form -->
+        <div id="login-form">
+          <h2 style="color: #1ed760; text-align: center; margin-bottom: 30px;">Sign In</h2>
+          <div class="form-group">
+            <label for="login-username">Username</label>
+            <input type="text" id="login-username" class="form-control" placeholder="Enter your username" />
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" class="form-control" placeholder="Enter your password" />
+          </div>
+          <button class="form-submit" onclick="loginUser()">Sign In</button>
+          <div class="form-toggle">
+            Don't have an account? <a onclick="toggleAuthForms()">Register</a>
+          </div>
+        </div>
+
+        <!-- Register Form -->
+        <div id="register-form" style="display: none;">
+          <h2 style="color: #1ed760; text-align: center; margin-bottom: 30px;">Create Account</h2>
+          <div class="form-group">
+            <label for="register-username">Username</label>
+            <input type="text" id="register-username" class="form-control" placeholder="Choose a username" />
+          </div>
+          <div class="form-group">
+            <label for="register-email">Email</label>
+            <input type="email" id="register-email" class="form-control" placeholder="Enter your email" />
+          </div>
+          <div class="form-group">
+            <label for="register-password">Password</label>
+            <input type="password" id="register-password" class="form-control" placeholder="Create a password" />
+          </div>
+          <button class="form-submit" onclick="registerUser()">Register</button>
+          <div class="form-toggle">
+            Already have an account? <a onclick="toggleAuthForms()">Sign In</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
