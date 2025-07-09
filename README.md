@@ -2,6 +2,9 @@
 
 This project is a responsive web-based media recommendation platform where users can explore movie, music, and book suggestions. It features user authentication, an activity tracker, and links to external recommendation systems.
 
+## Live Link
+https://geethikagattu.github.io/movie-book-music-recomendation/
+
 ## 🔧 Features
 
 - 🔐 **User Authentication**: Register, login, logout using localStorage.
